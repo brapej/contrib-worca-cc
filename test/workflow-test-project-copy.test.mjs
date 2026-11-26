@@ -4,7 +4,7 @@
 import { test, after, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, symlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, realpathSync, rmSync, statSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { _resetForTests, getDb } from '../src/core/db.mjs';
@@ -21,7 +21,8 @@ const commit = (cwd, msg) => git(cwd, '-c', 'user.email=t@t', '-c', 'user.name=t
 const dirs = [];
 let home, wh, real, key;   // wh: worcaHome(), which is <WORCA_HOME>/.worca-cc
 beforeEach(() => {
-  home = mkdtempSync(join(tmpdir(), 'worca-cc-wftcopy-'));
+  // realpath: git prints resolved paths (macOS: tmpdir() is /var/…, a link to /private/var/…).
+  home = realpathSync(mkdtempSync(join(tmpdir(), 'worca-cc-wftcopy-')));
   _resetForTests(); process.env.WORCA_HOME = home; wh = worcaHome();
   real = templateRepo('wftcopy', { branch: 'main', user: true, files: { 'README.md': '# hi\n', 'src/a.mjs': 'export const a = 1;\n' } });
   dirs.push(home, real);

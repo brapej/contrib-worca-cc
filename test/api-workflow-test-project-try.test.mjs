@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import http from 'node:http';
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
-import { mkdtemp, rm } from 'node:fs/promises';
+import { mkdtemp, realpath, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { useTempHome } from './helpers/temp-home.mjs';
@@ -31,7 +31,8 @@ const GRAPH = {
 const SETUP_OK = 'node -e "const f=require(\'fs\');f.mkdirSync(\'node_modules/x\',{recursive:true});f.writeFileSync(\'node_modules/x/y.txt\',\'x\');f.mkdirSync(\'setup-out\',{recursive:true});f.writeFileSync(\'setup-out/z.txt\',\'z\')"';
 
 before(async () => {
-  homeDir = await mkdtemp(join(tmpdir(), 'worca-cc-wftptry-'));
+  // realpath: a run records its checkout's resolved path (macOS: tmpdir() is /var/…, a link to /private/var/…).
+  homeDir = await realpath(await mkdtemp(join(tmpdir(), 'worca-cc-wftptry-')));
   wh = join(homeDir, '.worca-cc');   // worcaHome() is <WORCA_HOME>/.worca-cc (src/core/projects.mjs)
   prevHome = process.env.WORCA_HOME;
   process.env.WORCA_HOME = homeDir;

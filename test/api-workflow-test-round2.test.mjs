@@ -6,7 +6,7 @@ import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import http from 'node:http';
 import { execFileSync } from 'node:child_process';
-import { mkdtemp, rm } from 'node:fs/promises';
+import { mkdtemp, realpath, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { useTempHome } from './helpers/temp-home.mjs';
@@ -28,7 +28,8 @@ before(async () => {
   srv = http.createServer(mod.app);
   await new Promise((r) => srv.listen(0, '127.0.0.1', r));
   base = `http://127.0.0.1:${srv.address().port}`;
-  project = templateRepo('wftr2', { branch: 'main', user: true, files: { 'README.md': '# r2\n' } });
+  // realpath: the store records a project's canonical root (macOS: tmpdir() is /var/…, a link to /private/var/…).
+  project = await realpath(templateRepo('wftr2', { branch: 'main', user: true, files: { 'README.md': '# r2\n' } }));
   artifacts = await import('../src/core/artifacts.mjs');
   store = await import('../src/core/store.mjs');
   key = store.projectKey(project);

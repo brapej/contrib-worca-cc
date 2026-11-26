@@ -4,7 +4,7 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, rmSync } from 'node:fs';
+import { mkdirSync, realpathSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { useTempHome } from './helpers/temp-home.mjs';
 import { templateRepo } from './helpers/git-dir.mjs';
@@ -80,7 +80,8 @@ test('a git run in the copy: the real key, a checkout under its run root, and th
   assert.equal(row.project_key, key);
   const br = JSON.parse(row.branch);
   assert.equal(br.baseSha, sha, 'the run started at the pinned commit');
-  assert.ok(String(br.worktreeDir).toLowerCase().startsWith(join(home, 'runs', pipelineId, 'repos', key).toLowerCase()), br.worktreeDir);
+  // realpath: a run records its checkout's resolved path (macOS: tmpdir() is /var/…, a link to /private/var/…).
+  assert.ok(String(br.worktreeDir).toLowerCase().startsWith(join(realpathSync(home), 'runs', pipelineId, 'repos', key).toLowerCase()), br.worktreeDir);
   assert.ok(br.feature, 'the run made its own branch');
   assert.ok(git(copy, 'rev-parse', '--verify', `refs/heads/${br.feature}`), 'in the copy');
   assert.throws(() => git(real, 'rev-parse', '--verify', '--quiet', `refs/heads/${br.feature}`), 'never in the person\'s repository');
