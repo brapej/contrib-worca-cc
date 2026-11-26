@@ -6,7 +6,7 @@ ends.
 
 ## Auto: Worca picks the workflow
 
-You don't have to choose a workflow yourself. **Auto** is first in the New pipeline **Workflow** picker and is
+You don't have to choose a workflow yourself. **Auto** is first in the New run **Workflow** picker and is
 selected by default (`--workflow auto` on the CLI).
 
 One model call reads the task text, any attached files and a small offline fingerprint of the repository. It may
@@ -214,7 +214,7 @@ branch**. If it conflicts, you get **Resolve in a pipeline** or **Resolve in a t
 
 ### Mock mode
 
-To try Worca without spending anything, turn on **Mock mode** on New pipeline (`--mock` on the CLI, or
+To try Worca without spending anything, turn on **Mock mode** on New run (`--mock` on the CLI, or
 `WORCA_MOCK=1` for a whole server). The pipeline runs against a deterministic offline mock, with no `claude` and no
 tokens. It's meant for demos, development and CI.
 

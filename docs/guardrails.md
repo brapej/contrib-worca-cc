@@ -11,7 +11,7 @@ Expert level, starts from any of them, or blank), with an editor for the five po
 4. protected paths
 5. deny rules
 
-The New Pipeline form has a **Guardrails** picker next to the workflow picker
+The New run form has a **Guardrails** picker next to the workflow picker
 (under **Advanced**):
 the selected set is the run's entire policy, applied uniformly to every agent
 the run spawns — and, for a workspace run, uniformly to every member project.
@@ -23,7 +23,7 @@ run still starts and the deviation is recorded.
 default.** A new install defaults to **Normal**. An install that existed
 before this default changed keeps **Permissive** (no restrictions), so its
 runs behave exactly as they did; pick Normal or Strict in the picker to
-change a run. The default applies to the New Pipeline picker's preselection,
+change a run. The default applies to the New run picker's preselection,
 to a CLI run without `--guardrails` and to `POST /api/run` without a `guardrailsId`.
 On the CLI, `--guardrails <id>` picks the set (`permissive`, `normal`, `secure`
 for Strict, or a saved set's id); an unknown id exits before the run starts.

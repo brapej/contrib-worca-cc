@@ -63,5 +63,5 @@ Team caps live in [Team policy](team-policy.md).
 ## Cost tags
 
 Tags let you see what spend went where, for example per client. A tag is a `key:value` pair such as `client:acme`.
-You add tags on New pipeline, on run pages and on Ask run cards, or with `--tag` on the CLI. Settings › Tags can
+You add tags on New run, on run pages and on Ask run cards, or with `--tag` on the CLI. Settings › Tags can
 make some tags mandatory. Statistics and Team metrics then show spend **By tag**.

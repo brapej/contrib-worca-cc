@@ -136,7 +136,7 @@ taken too it is skipped). In a pipeline, a deny rule on `mcp__linear__…` reach
 
 - **Pipelines:** every agent of a run gets the servers of the sets its project (or, for a workspace,
   its members) resolves to, plus its policy's Team set (for a workspace run, the workspace policy's
-  only). New Pipeline › Advanced › **Sets**
+  only). New run › Advanced › **Sets**
   lets you switch memberships off for one run (schedules keep the choice); skipped memberships show
   their reason. Workspace scans and memory defragment runs get none. A workspace attaches no sets of its
   own: its Overview lists what its runs get, each row with the member project that brings it.

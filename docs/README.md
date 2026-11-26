@@ -35,6 +35,7 @@ Start with the [project README](../README.md) for what Worca is and a quick star
 - [Chat](chat.md) — Ask Worca: scope, cards you confirm, agent mode, Pinpoint, memory and voice
 - [Chat home](chat-home.md) — the composer, quick actions and the tabs Chat opens on
 - [Files in the chat](show-files.md) — the files card and its viewer
+- [Design](design.md) — describe a web page, a document, a presentation, a pitch deck or a video in its own chat, and agents build it (beta)
 - [Voice mode](speech.md) — hands-free Chat: Whisper and Kokoro in the browser, or your own speech servers
 - [Voice languages](speech-languages.md) — which languages work today, and the plan for more
 - [Browser extension](browser-extension.md) — sidebar chat, page context and Pinpoint on web pages; pairing and security model

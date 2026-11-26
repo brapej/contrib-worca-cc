@@ -1,6 +1,3 @@
-> [!NOTE]
-> This project will soon move to a new organization: [github.com/worca-org](https://github.com/worca-org).
-
 # Contributing to Worca
 
 Thanks for your interest in contributing! This document covers developing Worca
@@ -37,8 +34,15 @@ Requirements:
 
 ```bash
 git clone https://github.com/worca-org/worca.git
-cd worca-cc          # the default branch is dev
+cd worca             # the default branch is dev
 npm install
+```
+
+The repository moved from `SinishaDjukic/worca-cc` to `worca-org/worca` in November 2026. An older
+clone keeps working through GitHub's redirect. Point it at the new address with:
+
+```bash
+git remote set-url origin https://github.com/worca-org/worca.git
 ```
 
 There is **no build step**: the backend is plain Node ESM (`.mjs`), the

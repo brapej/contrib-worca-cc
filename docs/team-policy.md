@@ -35,7 +35,7 @@ No run is ever blocked by a policy. The two Chat web fields are the exception to
 | Chat turn limit, per-turn cap | Settings › Chat, when you have not stored them | default |
 | Chat web access | off switches web access off for chats pinned to the project; a policy can never switch it on | soft (off only) |
 | Chat web allowlist | the most a developer may allow: hosts outside it are dropped from their own list for chats pinned to the project; it never adds a host | soft |
-| Guardrails default set / minimum tier | what the New pipeline picker starts on; a run below the tier warns | default / soft |
+| Guardrails default set / minimum tier | what the New run picker starts on; a run below the tier warns | default / soft |
 | Model roles (`models.roles`) | Deep thinking, Everyday tasks, Quick jobs per harness, by upstream model; each machine maps it to its own source | default / soft |
 | Interface level, AI-written PR descriptions, Smart run names, Coding agent, Sync before run, Wait for the network (`setup.*`) | offered in the setup assistant on Review; nothing changes before Apply | default |
 | Allowed models, step defaults, hide built-ins | pickers warn on an off-list model; roles you have not configured start from the team's | soft / default |
@@ -105,7 +105,7 @@ local value where yours is looser than a soft team cap.
   "Continue past team cap"; the override persists on the run. The team total cap is acknowledged
   once per reset window per home. Your own local caps keep their existing behaviour and are never
   bypassed by a team acknowledgement.
-- **Run start.** New pipeline lists the policy's notes (off-list model, missing plugin, guardrails
+- **Run start.** New run lists the policy's notes (off-list model, missing plugin, guardrails
   below the minimum) — nothing there blocks Start run. `POST /api/run` and `worca run` refuse only
   a team total cap that has not been acknowledged; `pastTeamCap` / `--past-team-cap [--reason]`
   records the acknowledgement and proceeds.

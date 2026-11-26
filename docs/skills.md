@@ -104,7 +104,7 @@ references break, and the catalog and the import preview flag them.
   a workspace run gets its member projects' sets and the workspace policy's Team set; workspaces attach no sets of
   their own. The skills come on top of your personal `~/.claude` skills, plugins and hooks, which pipeline agents
   keep loading. A skill's inline shell blocks (`` !`cmd` ``) run in pipeline runs without guardrail checks: they run
-  when Claude Code renders the skill, not as a tool call a guardrail sees. New Pipeline › Advanced › **Sets** lets you
+  when Claude Code renders the skill, not as a tool call a guardrail sees. New run › Advanced › **Sets** lets you
   switch a skill off for one run; skipped skills show their reason, and the run's Overview shows a **Skills from
   sets** block with the skills it got. Workspace scans and memory defragment runs get none. Delivered as copies under
   the run's own folder: an agent's edit never reaches the library or a plugin.

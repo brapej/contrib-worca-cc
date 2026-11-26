@@ -33,7 +33,7 @@ anything.
 2. **A non-default value stays visible.** If a guardrail set, a model override,
    a feature branch or a fan-out toggle was set in a higher mode, a lower mode
    still shows it. Use `keepVisible()` on the control, or name it in the
-   "still applied to this run" note on New pipeline.
+   "still applied to this run" note on New run.
 3. **The mode is a view preference, not a permission.** A deep link such as
    `#models` opens at Simple. The page shows a banner naming its level
    and offering the switch. Never disable a control or refuse a route because of
@@ -134,7 +134,7 @@ be skipped by forgetting it.
 
 | Element | Level |
 |---|---|
-| New pipeline, Getting started, Runs, Projects | S |
+| Getting started, Runs, Projects | S |
 | New run: the Runs page head (#runs-new; the top bar no longer has it) | S — the way to the New run page at every level and width; the guide's New run hop rings it after the Runs row |
 | Build: the group label, Workflows (the full-screen editor; agents and scripts live in its Library) | S |
 | Build: Requirements (behind the requirements flag) | S |
@@ -142,7 +142,7 @@ be skipped by forgetting it.
 | Chat (the first sidebar row; the app's home) | S |
 | Chat home: Start from a preset chips; "N more…" opens New run below Advanced and Settings › Presets from Advanced | S |
 | The account corner and its menu: the level card, "Signed in as" (a shared identity), the spend card and Usage, the Away and Keep awake switches, Appearance, Interface mode, Settings | S |
-| The spend ring on the avatar and the menu's spend card (with the free-request row) | S — never hidden: a blocked limit turns the ring red and full, and the card and the New pipeline note say until when |
+| The spend ring on the avatar and the menu's spend card (with the free-request row) | S — never hidden: a blocked limit turns the ring red and full, and the card and the New run note say until when |
 | Insights: the group label, Statistics | A |
 | Workspaces | A |
 | Add-ons: the group label, Marketplace, Connectors | A |
@@ -156,7 +156,7 @@ be skipped by forgetting it.
 
 Levels are not Interface modes: no level element carries `data-min-level`; Try next / Open links to higher-mode pages open them with the banner.
 
-### New pipeline
+### New run
 
 | Element | Level |
 |---|---|
@@ -375,7 +375,7 @@ sub-path kept; `#providers/…` and `#settings/providers` land on Models › Pro
 | Models › Jobs: the Steps and Helper jobs cards and their Override buttons (Claude Code's helper jobs: Titles, Auto workflow classifier, PR description, Memory defragment, Agent generation, Second-opinion reviewer and, behind their flags, Run naming, Command summaries and Requirements interview), and the Design card behind the `design` flag | A |
 | Models › Jobs: the harness tiles, the harness line's Default for new runs, and each card's Show all. Below Expert the tab shows the default harness | E |
 | Models › Providers: GitHub Copilot (sign-in, Account, Max concurrent requests), OpenRouter, OpenAI-compatible, Anthropic-compatible, Speech, Image generation, Sound, and the rows' Import models | E |
-| Models › Catalogue: a model's "Needs setup" state, and a harness group's "Needs sign-in" or "Needs key" line with its Sign in or Set key button; the New pipeline caption's "needs sign-in" note | all (rule 1 — they block a run) |
+| Models › Catalogue: a model's "Needs setup" state, and a harness group's "Needs sign-in" or "Needs key" line with its Sign in or Set key button; the New run caption's "needs sign-in" note | all (rule 1 — they block a run) |
 
 ### Requirements (behind the `requirements` flag)
 
@@ -425,7 +425,7 @@ missing (`data-needs-git`), at every level.
 | Statistics: the Requirements tile (spend, features, a link to the page; behind the `requirements` flag), the Requirements row in the Group by tables and in the Cost report (money already spent there stays listed while the flag is off) | A — with the page |
 | Team metrics page and every surface of it elsewhere | E |
 | Team policy page and its Policy / Plugins / Catalog tabs | E |
-| Team-policy notes on New pipeline; the team caps readout under Budget & cost limits | all — a team cap applies in every mode, so the reason it applies is never hidden |
+| Team-policy notes on New run; the team caps readout under Budget & cost limits | all — a team cap applies in every mode, so the reason it applies is never hidden |
 | The Installed tab's Team policy card and the setup checklist (the Marketplace page) | A — with the page that holds them |
 | Ask: chat, history, attachments, run card (its progress bar and stage text), proposal title / project / workflow / brief / Start | S |
 | Ask: proposal card's Source branch when "Chat runs: source branch" is Ask me on the card (or Only when the chat names one) and the card has no branch: the field, its "Pick a branch…" option and its hint; it stays shown once a branch is picked on that card | S — otherwise A, as before |
